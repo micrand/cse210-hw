@@ -6,6 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        
         int displayScreen = 1;
         int totalCount = 0;
         double averageNumber = 0;        
