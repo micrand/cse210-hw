@@ -11,6 +11,12 @@ public class Resume
 
     public void Display()
     {
-        Console.WriteLine( $"{this._name}");
+        Console.WriteLine( $"Name: {this._name}");
+        Console.WriteLine( $"Job: ");
+        foreach(Jobs jb in _jobs)
+        {
+            jb.Display();
+        }
+
     }
 }
