@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 class Journal 
 {
@@ -76,8 +74,6 @@ class Journal
             }
         }
 
-        // todo:
-        //https://www.makeuseof.com/csv-file-c-sharp-save-data/
     }
 
     public void LoadFromFile(string journalFileName)
