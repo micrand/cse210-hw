@@ -1,3 +1,9 @@
+/*
+ * Purpose: Journal W02
+ * Author: Randriamihaja Mickael
+ * Creativities: Add additional data to the file (topic), create csv file
+ *
+*/
 using System;
 using System.IO.Enumeration;
 
@@ -13,10 +19,6 @@ class Program
         Console.WriteLine("Please select one of the following choices:");
 
         Journal journal = new Journal();
-        // Entry entry = new Entry();
-        // journal.Display();
-        // journal.DisplayAll();        
-        // entry.Display();       
         
         while(exit_prompt!="5")
         {
@@ -28,36 +30,40 @@ class Program
             Console.WriteLine("5. Quit");           
             exit_prompt = Console.ReadLine();            
 
+            
+
             if( exit_prompt == "1" )
             {  
                 
-                Console.WriteLine("What would you like to do?");               
+                Console.WriteLine("What would you like to do?");
                 PromptGenerator prompts = new PromptGenerator();            
                 string _currentPrompt = prompts.GetRandomPrompt();
                 Console.Write(_currentPrompt + spaceOne);
                 string todoText = Console.ReadLine();
 
-                Entry entry = new Entry(_currentPrompt, todoText);
-                entry._entryText = todoText;
-                entry._promptText = _currentPrompt;
-                journal.AddEntry(entry);
+                Console.WriteLine("Enter the topic: ");
+                string topic = Console.ReadLine();
 
-                journal.DisplayAll();
-                
+                Entry entry = new Entry(_currentPrompt, todoText, topic);
+                journal.AddEntry(entry);          
+             
                 
             }
             else if( exit_prompt == "2")
             {
-               
+               string aaa = journal.DisplayAll();
+               Console.WriteLine(aaa);
             }
             else if(exit_prompt=="3")
             {
-                
+                Console.Write("What is the filename to load? ");
+                string fileName = Console.ReadLine();
+                journal.LoadFromFile(fileName);
             }
             else if(exit_prompt=="4")
             {
 
-                Console.Write("Write is the filename? ");
+                Console.Write("What is the filename? ");
                 string fileName = Console.ReadLine();
                 
                 journal.SaveToFile(fileName);
