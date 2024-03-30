@@ -39,27 +39,30 @@ public class Scripture
             Word word = new Word(_words[i]);
             Random random = new Random();
             int nbToHide = random.Next(0, _words.Count);
-
-            int maxToHide = nbToHide + 3;
             
             // Console.Write(word.GetDisplayText());      
-            string currentWord = word.GetDisplayText();
-            if(i>nbToHide && i<maxToHide) 
-            {
-                arrayHiddenWords[i] = currentWord;
+            string currentWord = word.GetDisplayText();           
+            
+            string displayedWord = "";         
+            if(nbToHide > 3 && nbToHide < 8)
+            {               
+                if(!arrayHiddenWords.Contains(currentWord))
+                {
+                    arrayHiddenWords.Add(currentWord);                   
+                }   
             }
 
             if(arrayHiddenWords.Contains(currentWord))
             {
-                word.Hide();
-            }else{
-                word.Show();
-            }
-           
+                displayedWord = word.Hide();
+            } 
+            else 
+            {
+                displayedWord = word.Show();
+            }            
+
             
-            string displayedWord = "";           
-            
-            // Console.Write(currentWord);
+            Console.Write(displayedWord);
             // Console.Write(HideRandomWords(i));
             
             Console.Write(separatorWord);
