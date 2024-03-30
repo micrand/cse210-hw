@@ -6,11 +6,12 @@ public class Word
     public Word(string text)
     {
         _text = text;
-        _isHidden = false;
+        // _isHidden = false;
     }
 
     public string Hide()
     {
+        
         return "____";
 
     }
@@ -20,16 +21,33 @@ public class Word
         return _text;
     }
 
-    public void isHidden()
+    public bool isHidden()
     {
-        _isHidden = true;
+        if( _text == "____")
+        {
+            _isHidden = true;
+        }
+        else
+        {
+            _isHidden = false;
+        }
+        return _isHidden;
     }
 
     public string GetDisplayText()
     {        
-        string _return_text = Hide();
+        string _return_text = "";        
         
-        return _return_text;
+        if(!isHidden())
+        {            
+            _return_text = Show();
+        }
+        else
+        {
+            _return_text = Hide();
+        }
+        
+        return $"{_return_text}";
     }
 
 }
