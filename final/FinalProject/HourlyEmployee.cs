@@ -1,27 +1,29 @@
 public class HourlyEmployee : Employee
 {
-    private double _salary;
-    private string _contract;
-    private List<string> _schedules;
+    private int _salary;
 
-    public HourlyEmployee()
+    public HourlyEmployee(int id, string name, string firstName, string employeeType):base(id, name, firstName, employeeType)
+    {
+        int salary = 250;
+        int hours = 4;
+        this.SetSalary(salary, hours);
+    }
+
+    public float GetSalary()
+    {
+        return _salary;
+    }
+
+    public void SetSalary( int salary, int hours )
+    {
+        _salary = salary * hours;
+    }
+
+    public override string ShowEmployeesDetails()
     {
         
-    }
-
-    public virtual void GetSalary()
-    {
-       
-    }
-
-    public string GetSchedules()
-    {
         return "";
-
     }
 
-    public string SetSchedules()
-    {
-        return "";
-    }    
+
 }

@@ -1,9 +1,12 @@
 public class Student 
 {
-    private int _ID;
-    private string _name;
-    private string _firstname;
-    private string _birthdate;
+
+    private int _studentID;
+
+    private string _studentName;
+
+    private string _studentFirstName;
+
     private string _studentClass;
 
     public Student()
@@ -11,23 +14,63 @@ public class Student
 
     }
 
-    public void SetID(int id)
+    public Student(int id, string name, string firstName, string studentClass)
     {
-        _ID = id;
+        this.SetStudentID(id);
+        this.SetStudentName(name);
+        this.SetStudentFirstName(firstName);
+        this.SetStudentClass(studentClass);
+
     }
 
-    public int GetID()
+
+    public void SetStudentID(int id)
     {
-        return _ID;
+        _studentID = id;
     }
 
-    public string GetName()
+    public int GetStudentID()
     {
-        return _name;
+        return _studentID;
     }
 
-    public void SetName(string name)
+    public string GetStudentName()
     {
-        _name = name;
+        return _studentName;
     }
+
+    public void SetStudentName(string name)
+    {
+        _studentName = name;
+    }
+
+    public string GetStudentFirstName()
+    {
+        return _studentFirstName;
+    }
+
+    public void SetStudentFirstName(string firstName)
+    {
+        _studentFirstName = firstName;
+    }
+
+    public string GetStudentClass()
+    {
+        return _studentClass;
+
+    }
+
+    public void SetStudentClass(string sClass)
+    {
+        _studentClass = sClass;
+    }
+
+    public virtual string GetStringData()
+    {
+        string studentData = $"{_studentID};{_studentName};{_studentFirstName};{_studentClass}...";
+        Console.WriteLine(studentData);
+
+        return studentData;
+    }
+
 }

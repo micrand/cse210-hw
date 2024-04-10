@@ -1,27 +1,20 @@
 public class FullEmployee : Employee
-{
-    private double _salary;
-    private string _contract;
-    private List<string> _schedules;
+{  
 
-    public FullEmployee()
+    public FullEmployee(int id, string name, string firstName, string employeeType):base(id, name, firstName, employeeType)
     {
         
     }
 
-    public virtual void GetSalary()
+    public override string GetStringDataInformations()
     {
-       
+        return "nan";
     }
 
-    public string GetSchedules()
+    public override string ShowEmployeesDetails()
     {
+        
         return "";
-
     }
 
-    public string SetSchedules()
-    {
-        return "";
-    }    
 }
