@@ -1,0 +1,3 @@
+SimpleGoal:Read the scriptures,Descrpition read to scriptures,50,False
+EternalGoal:Help my neighbors,description goal 2 help neighbor,100
+ChecklistGoal:checklist goals to do ,description checklist of goal,3 -- Currently completed: 0/50

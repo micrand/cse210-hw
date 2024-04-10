@@ -1,11 +1,13 @@
 public class EternalGoal : Goal 
 {
-    public EternalGoal( string name, string description, string points) : base(name, description, points)
+    public EternalGoal( string name, string description, int points) : base(name, description, points)
     {
-
+        base.SetShortName(name);
+        base.SetDescription(description);
+        base.SetPoints(points);
     }
 
-    public void RecordEvent()
+    public override void RecordEvent()
     {
 
     }
@@ -15,8 +17,13 @@ public class EternalGoal : Goal
         return base.IsComplete();
     }
 
-    public string GetStringsRepresentation()
+    public override string GetStringsRepresentation()
     {
-        return "";
+        string name = base.GetShortName();
+        string description = base.GetDescription();
+        int points = base.GetPoints();
+
+        string sGoalText = $"{name},{description},{points}";
+        return sGoalText;
     }
 }

@@ -1,13 +1,15 @@
 public class SimpleGoal : Goal 
 {
-    public SimpleGoal( string name, string description, string points) : base(name, description, points)
+    public SimpleGoal( string name, string description, int points) : base(name, description, points)
     {
-
+        base.SetShortName(name);        
+        base.SetDescription(description);
+        base.SetPoints(points);        
     }
 
-    public void RecordEvent()
+    public override void RecordEvent()
     {
-
+        
     }
 
     public bool IsComplete()
@@ -15,8 +17,13 @@ public class SimpleGoal : Goal
         return base.IsComplete();
     }
 
-    public string GetStringsRepresentation()
+    public override string GetStringsRepresentation()
     {
-        return "";
+        string name = base.GetShortName();
+        string description = base.GetDescription();
+        int points = base.GetPoints();
+
+        string sGoalText = $"{name},{description},{points},False";
+        return sGoalText;
     }
 }
