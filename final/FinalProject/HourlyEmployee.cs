@@ -2,11 +2,14 @@ public class HourlyEmployee : Employee
 {
     private int _salary;
 
-    public HourlyEmployee(int id, string name, string firstName, string employeeType):base(id, name, firstName, employeeType)
+    public HourlyEmployee()
     {
-        int salary = 250;
-        int hours = 4;
-        this.SetSalary(salary, hours);
+
+    }
+
+    public HourlyEmployee(int id, string name, string firstName, string employeeType):base(id, name, firstName, employeeType)
+    {       
+        // this.SetSalary(salary, hours);
     }
 
     public float GetSalary()
