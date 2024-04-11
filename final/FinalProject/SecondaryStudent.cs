@@ -1,5 +1,6 @@
 public class SecondaryStudent : Student
 {
+    private List<Grade> _grades = new List<Grade>();
 
 
     public SecondaryStudent()
@@ -20,6 +21,23 @@ public class SecondaryStudent : Student
         Console.WriteLine( $"{name};{firstName};{studentClass}" );
 
         return "";
+    }
+
+
+    // Handle custom data display for Secondary studens
+    public override void FillStudentsData()
+    {
+        
+
+    }
+
+    public override void ShowStudents(List<Student> studentsData)
+    {
+        // Console.WriteLine(students);
+        foreach( Student student in studentsData ?? new List<Student>() )
+        {         
+            Console.WriteLine("sec="+student.GetStudentName());
+        }
     }
 
 }

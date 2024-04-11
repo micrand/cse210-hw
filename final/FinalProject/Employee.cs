@@ -21,7 +21,6 @@ public class Employee
         this.SetEmployeeName(name);
         this.SetEmployeeFirstName(firstName);
         this.SetEmployeeType(employeeType);
-
     }
 
     public int GetEmployeeID()
@@ -67,7 +66,7 @@ public class Employee
 
     public virtual string GetStringDataInformations()
     {
-        return "nan";
+        return "";
     }
 
     public virtual string ShowEmployeesDetails()

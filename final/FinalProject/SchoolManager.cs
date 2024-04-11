@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.IO; 
 
 public class SchoolManager
 {
 
-    private List<string> _students;
+    private List<Student> _students = new List<Student>();
 
     private List<string> _employees;
 
@@ -31,53 +32,65 @@ public class SchoolManager
             if(quitProgram == 1)
             {
                 
-                
                 Console.WriteLine("1. Add new Student");
                 Console.WriteLine("2. Search Student");                
                 Console.WriteLine("3. Show Students");                
 
                 Console.Write("Which action would you like to do? ");
                 string input = Console.ReadLine();
-                int studentAction = Int32.Parse(input);
 
-                if( studentAction == 1 )
+                if (input != "1" && input != "2" && input != "3")
                 {
-                    Console.Write("What is the student ID? ");
-                    string inputID = Console.ReadLine();
-                    int studentID = Int32.Parse(inputID);
+                    Console.WriteLine("---Please enter correct value---");
+                }
+                else
+                {
 
-                    Console.Write("What is the name of the student? ");
-                    string studentName = Console.ReadLine();
-                    Console.Write("What is the first name of the student? ");
-                    string studentFirstName = Console.ReadLine();
-                    Console.Write("Enter the class of this student? (secondary|postsecondary) ");
-                    string studentClass = Console.ReadLine();
+                    int studentAction = Int32.Parse(input);
 
-                    if( studentClass != "secondary" && studentClass != "postsecondary")
+                    
+
+                    if( studentAction == 1 )
                     {
-                        Console.WriteLine("---Please choose the correct value:---");
+                        Console.Write("What is the student ID? ");
+                        string inputID = Console.ReadLine();
+                        int studentID = Int32.Parse(inputID);
+
+                        Console.Write("What is the name of the student? ");
+                        string studentName = Console.ReadLine();
+                        Console.Write("What is the first name of the student? ");
+                        string studentFirstName = Console.ReadLine();
                         Console.Write("Enter the class of this student? (secondary|postsecondary) ");
-                        studentClass = Console.ReadLine();
+                        string studentClass = Console.ReadLine();
+
+                        if( studentClass != "secondary" && studentClass != "postsecondary")
+                        {
+                            Console.WriteLine("---Please choose the correct value:---");
+                            Console.Write("Enter the class of this student? (secondary|postsecondary) ");
+                            studentClass = Console.ReadLine();
+
+                        }
+
+                        Student student = new Student(studentID, studentName, studentFirstName, studentClass);
+
+                        string studentData = student.GetStringData();
+                        _students.Add( new SecondaryStudent() );                    
+                
 
                     }
+                    // search student
+                    else if( studentAction == 2 )
+                    {
+                        
 
-                    Student student = new Student(studentID, studentName, studentFirstName, studentClass);
+                    }
+                    // show student
+                    else if ( studentAction == 3 )
+                    {
+                        Student student = new Student();
+                        student.ShowStudents(_students);
 
-                    string studentData = student.GetStringData();                    
-                    Console.WriteLine( studentData );
-                    // _students.Add( studentData );
-
-                }
-                // search student
-                else if( studentAction == 2 )
-                {
-
-                }
-                // show student
-                else if ( studentAction == 3 )
-                {
-
-
+                    }
                 }
                 
             }
@@ -142,7 +155,7 @@ public class SchoolManager
 
     public string ShowStudentsData()
     {
-        foreach(string student in _students )
+        foreach(Student student in _students )
         {
             Console.WriteLine( student );
         }

@@ -9,9 +9,11 @@ public class Student
 
     private string _studentClass;
 
-    public Student()
-    {
+    protected List<string> _students;
 
+    public Student()
+    {  
+        
     }
 
     public Student(int id, string name, string firstName, string studentClass)
@@ -20,8 +22,16 @@ public class Student
         this.SetStudentName(name);
         this.SetStudentFirstName(firstName);
         this.SetStudentClass(studentClass);
-
     }
+
+    public Student(int id, string name, string firstName, string studentClass, string students)
+    {
+        this.SetStudentID(id);
+        this.SetStudentName(name);
+        this.SetStudentFirstName(firstName);
+        this.SetStudentClass(studentClass);
+        this.SetStudentsData(students);
+    }    
 
 
     public void SetStudentID(int id)
@@ -67,10 +77,31 @@ public class Student
 
     public virtual string GetStringData()
     {
-        string studentData = $"{_studentID};{_studentName};{_studentFirstName};{_studentClass}...";
-        Console.WriteLine(studentData);
+        string studentData = $"{_studentID};{_studentName};{_studentFirstName};{_studentClass}";
+        // Console.WriteLine(studentData);
 
         return studentData;
+    }
+
+    public virtual void FillStudentsData()
+    {
+        List<string> studentsTab = new List<string>();
+        
+        // studentsTab.Add();
+
+    }
+
+    public void SetStudentsData(string data)
+    {
+
+    }
+
+    public virtual void ShowStudents(List<Student> students)
+    {
+        foreach( Student student in students ?? new List<Student>() )
+        {         
+            Console.WriteLine("stud="+student);
+        }
     }
 
 }
