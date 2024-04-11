@@ -74,7 +74,14 @@ public class SchoolManager
                         Student student = new Student(studentID, studentName, studentFirstName, studentClass);
 
                         string studentData = student.GetStringData();
-                        _students.Add( new SecondaryStudent() );                    
+                        if ( studentClass == "secondary" )
+                        {
+                            _students.Add(new SecondaryStudent());                    
+                        }
+                        else 
+                        {
+                            _students.Add(new PostSecondaryStudent());
+                        }
                 
 
                     }

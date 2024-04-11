@@ -104,7 +104,7 @@ public class Student
             string studName = stud.GetStudentName();
             int studID = stud.GetStudentID();
 
-            Console.WriteLine( $"name={studName},{studID}");;
+            // Console.WriteLine( $"name={studName},{studID}");;
             Console.WriteLine( stud );
 
         }
