@@ -81,15 +81,13 @@ public class SchoolManager
                     // search student
                     else if( studentAction == 2 )
                     {
-                        
-
+                        Console.WriteLine($"===There are {_students.Count} students found===");
                     }
                     // show student
                     else if ( studentAction == 3 )
                     {
                         Student student = new Student();
                         student.ShowStudents(_students);
-
                     }
                 }
                 

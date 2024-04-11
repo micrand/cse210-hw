@@ -98,10 +98,17 @@ public class Student
 
     public virtual void ShowStudents(List<Student> students)
     {
-        foreach( Student student in students ?? new List<Student>() )
-        {         
-            Console.WriteLine("stud="+student);
+      
+        foreach( Student stud in students ?? new List<Student>() )
+        {
+            string studName = stud.GetStudentName();
+            int studID = stud.GetStudentID();
+
+            Console.WriteLine( $"name={studName},{studID}");;
+            Console.WriteLine( stud );
+
         }
     }
+    
 
 }
